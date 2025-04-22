@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
@@ -11,11 +11,28 @@ def calcular_imc():
     try:
         peso = float(request.form['peso'])
         altura = float(request.form['altura'])
-        imc = peso / (altura ** 2)
-        return render_template('resultado.html', imc=round(imc, 2))
-    except (ValueError, KeyError):
-        return "Erro: valores inválidos"
+        imc = round(peso / (altura * altura), 2)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+        # Classificação do IMC
+        if imc < 18.5:
+            classificacao = "Abaixo do peso"
+        elif imc < 25:
+            classificacao = "Peso ideal"
+        elif imc < 30:
+            classificacao = "Sobrepeso"
+        elif imc < 35:
+            classificacao = "Obesidade grau 1"
+        elif imc < 40:
+            classificacao = "Obesidade grau 2"
+        else:
+            classificacao = "Obesidade grau 3"
+
+        return render_template('resultado.html', imc=imc, classificacao=classificacao)
+    except Exception as e:
+        return f"Erro no cálculo: {e}"
+
+@app.route('/calculo-imc', methods=['GET'])
+def rota_antiga():
+    return "API IMC ativa!"
+
 
