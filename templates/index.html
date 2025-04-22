@@ -1,25 +1,41 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <title>Calculadora de IMC</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            color: #000;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label, input, button {
+            margin: 5px;
+        }
+    </style>
 </head>
 <body>
     <h1>Calculadora de IMC</h1>
-
-    <p>
-        O <strong>Índice de Massa Corporal (IMC)</strong> é uma medida utilizada para verificar se o peso de uma pessoa está adequado em relação à sua altura.
-        Ele é importante para identificar possíveis riscos de saúde relacionados ao sobrepeso ou baixo peso.
-    </p>
-
-    <h2>Calcule seu IMC:</h2>
-    <form action="/calcular-imc" method="post">
-        <label>Peso (kg):</label>
-        <input type="text" name="peso" required><br><br>
-        <label>Altura (m):</label>
-        <input type="text" name="altura" required><br><br>
+    <p>O Índice de Massa Corporal (IMC) é uma medida internacional usada para calcular se uma pessoa está no peso ideal.</p>
+    <form action="/resultado" method="post">
+        <label for="peso">Peso (kg):</label>
+        <input type="number" step="0.01" name="peso" required>
+        <label for="altura">Altura (m):</label>
+        <input type="number" step="0.01" name="altura" required>
         <button type="submit">Calcular</button>
     </form>
 </body>
 </html>
-
