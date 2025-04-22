@@ -5,18 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato</title>
-   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-  
-
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <div class="container">
         <h1>Contato</h1>
-        <p>Para dúvidas ou sugestões, envie um e-mail para: marcosm-@hotmail.com</p>
-        <footer>
-            <a href="{{ url_for('index') }}">Página Inicial</a>
-        </footer>
+        <p>Entre em contato pelo email: contato@seudominio.com</p>
+        <a href="{{ url_for('index') }}">Voltar à Página Inicial</a>
     </div>
 </body>
 </html>
