@@ -1,32 +1,27 @@
-rom flask import Flask, render_template, request
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
 @app.route('/')
-def home():
+def index():
     return render_template('index.html')
 
 @app.route('/calcular', methods=['POST'])
 def calcular():
     try:
         peso = float(request.form['peso'])
-        altura = float(request.form['altura'])
+        altura = float(request.form['altura']) / 100
         imc = peso / (altura ** 2)
-
+        resultado = ""
         if imc < 18.5:
-            classificacao = "Abaixo do peso"
+            resultado = "Abaixo do peso"
         elif 18.5 <= imc < 25:
-            classificacao = "Peso ideal"
+            resultado = "Peso normal"
         elif 25 <= imc < 30:
-            classificacao = "Sobrepeso"
-        elif 30 <= imc < 35:
-            classificacao = "Obesidade grau 1"
-        elif 35 <= imc < 40:
-            classificacao = "Obesidade grau 2"
+            resultado = "Sobrepeso"
         else:
-            classificacao = "Obesidade grau 3"
-
-        return render_template('resultado.html', imc=round(imc, 2), classificacao=classificacao)
+            resultado = "Obesidade"
+        return render_template('resultado.html', imc=round(imc, 2), resultado=resultado)
     except:
         return "Erro no cálculo. Verifique os valores inseridos."
 
@@ -40,5 +35,4 @@ def politica():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
 
