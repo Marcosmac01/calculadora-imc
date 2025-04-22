@@ -2,40 +2,25 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de IMC</title>
-    <style>
-        body {
-            background-color: #f2f2f2;
-            color: #000;
-            font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        h1 {
-            text-align: center;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        label, input, button {
-            margin: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>Calculadora de IMC</h1>
-    <p>O Índice de Massa Corporal (IMC) é uma medida internacional usada para calcular se uma pessoa está no peso ideal.</p>
-    <form action="/resultado" method="post">
-        <label for="peso">Peso (kg):</label>
-        <input type="number" step="0.01" name="peso" required>
-        <label for="altura">Altura (m):</label>
-        <input type="number" step="0.01" name="altura" required>
-        <button type="submit">Calcular</button>
-    </form>
+    <div class="container">
+        <h1>Calculadora de IMC</h1>
+        <form action="/calcular" method="post">
+            <label for="peso">Peso (kg):</label>
+            <input type="number" step="any" name="peso" required>
+            <label for="altura">Altura (m):</label>
+            <input type="number" step="any" name="altura" required>
+            <button type="submit">Calcular</button>
+        </form>
+        <footer>
+            <a href="/">Início</a> | 
+            <a href="/contato">Contato</a> | 
+            <a href="/politica">Política de Privacidade</a>
+        </footer>
+    </div>
 </body>
 </html>
