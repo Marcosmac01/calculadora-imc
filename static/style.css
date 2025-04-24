@@ -5,7 +5,10 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    text-align: justify;
+    text-align: left;
+}
+h2 {
+    text-align: justify
 }
 .container {
     max-width: 600px;
