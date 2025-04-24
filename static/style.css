@@ -13,11 +13,7 @@ h1 {
 p {
     text-align: justify
 }
-
-h3 {
-    text-align: left
-}
-    
+ 
 .container {
     max-width: 600px;
     margin: 2rem auto;
